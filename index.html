@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //descobrir o valor de custo para depois calcular icms
+
+        alert('Antes de calcular ICMS, vamos descobrir o preço de custo do produto.')
+
+        let valorDoProduto = prompt('Quanto Custou seu produto?')
+        
+        const unidadesPorCaixa = Number(prompt('Quantas unidades vem por caixa?'))
+
+        function calculoDeCusto(valorDoProduto, unidadesPorCaixa){
+
+            if(valorDoProduto > unidadesPorCaixa){
+                return valorDoProduto / unidadesPorCaixa
+            }else{
+                return parseFloat(valorDoProduto)
+            }
+
+        }
+
+        const result = parseFloat(calculoDeCusto(valorDoProduto, unidadesPorCaixa))
+        
+
+        alert(`O valor de custo do seu produto é: ${result.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}`)
+
+
+        const produto = prompt('Em qual categoria seu Produto esta? Alimentos - Automoveis - Medicamentos?')
+
+        const minusculas = produto.toLowerCase();
+
+        const valorDeCusto = Number(prompt('Digite o valor de custo do seu produto'))
+
+        /*Aliquotas
+
+        Alimentos 12%
+        Automoveis 18%
+        Medicamentos 12%
+        */
+
+        function calculoDoIcms(minusculas, valorDeCusto){
+            
+            if(minusculas === 'alimentos'){
+                return valorDeCusto * 12 / 100
+            } else if(minusculas === 'automoveis'){
+                return valorDeCusto * 18 / 100
+            } else if(minusculas == 'medicamentos'){
+                return valorDeCusto * 12 / 100
+            } else{
+                alert('Poduto fora das categorias')
+            }
+        }
+
+        const icms = calculoDoIcms(minusculas, valorDeCusto)
+
+        const soma = icms + valorDeCusto
+
+        alert(`O valor do ICMS do seu produto é: ${icms.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}. O Valor do de venda do seu produto com o imposto ICMS é: ${soma.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}.`)
+
+
+        
+
+
+    
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
